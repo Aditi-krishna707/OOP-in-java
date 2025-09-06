@@ -160,8 +160,9 @@
 //     private void food(){
 //         System.out.println("I like to eat");
 //     }
-//     public void sound(){
+//     public void s(){
 //         System.out.println("everyone have  its own voice");
+//         food();
 //     }
 // }
 // class Dog extends Animals{
@@ -170,55 +171,47 @@
 //     }
 //     public void sound(){
 //         System.out.println("bho bho");
+//         food();
 //     }
 // }
 // public class Polymorphism {
-
 //     public static void main(String[] args) {
 //         Animals a=new Animals();
+//         a.s();
 //         Dog d=new Dog();
-//         d.Dog();
-//         a.Animals();
-
+//         d.sound();
 //     }
 // }
 
-class SuperClass {
-    private void privateMethod() {
-        System.out.println("it is a private method in SuperClass");
-    }
+// mtlb ye hai ki private method ko public method me lana pagedage same class ke phir execute ho sakta hai
 
-    public void publicMethod() {
-        System.out.println("it is a public method in SuperClass");
-        privateMethod();
-    }
-}
 
-class SubClass extends SuperClass {
-    // This is a new method with the same name as the
-    // private method in SuperClass
-    private void privateMethod() {
-        System.out.println("it is private method in SubClass");
-    }
 
-    // This method overrides the public method in SuperClass
-    public void publicMethod() {
-        // calls the private method in
-        // SubClass, not SuperClass
-        System.out.println("it is a public method in SubClass");
-        privateMethod();
+
+
+
+// Method Must Have the Same Return Type (or subtype)
+// ??????????????????????????????????????????????????????????
+
+
+
+
+//  Invoking Parent’s Overridden Method Using super
+class DSA{
+    void teacher(){
+        System.out.println("DSA teacher is TST");
     }
 }
-
+class OOPS extends DSA{
+    void teacher(){
+        System.out.println("OOP teacher is S");
+        super.teacher();
+    }
+}
 public class Polymorphism {
     public static void main(String[] args) {
-        SuperClass o1 = new SuperClass();
-        // calls the public method in
-        // SuperClass
-        o1.publicMethod();
-        SubClass o2 = new SubClass();
-        // calls the overridden public
-        // method in SubClass
-        o2.publicMethod();
+        OOPS obj=new OOPS();
+        obj.teacher();
     }
+    
 }
